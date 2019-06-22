@@ -5,40 +5,36 @@
     <div class="tile is-4">
       <div>
         <h1 class="title">Jacuzzi Entertainment</h1>
-        <form>
-          <div class="form-group">
-            <div class="field">
-              <label for="Name">Name</label>
-              <div class="control">
-                <input class="input form-control" type="text" id="name"
-                  placeholder="Text input" required>
-              </div>
+        <form #form="ngForm">
+          <div class="field">
+            <label for="Name">Name</label>
+            <div class="control">
+              <input class="input" type="text" id="name"
+                placeholder="Text input" required [(ngModel)]="model.name"
+                name="name">
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="field">
-              <label for="email">E-mail</label>
-              <div class="control">
-                <input class="input form-control" type="text" id="email"
-                  placeholder="Text input" required>
-              </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <div class="control">
+              <input class="input" type="text" id="email"
+                placeholder="Text input" required [(ngModel)]="model.email"
+                name="email">
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="field">
-              <label for="birthdayYear">Year of birth</label>
-              <div class="control">
-                <input class="input form-control" type="text" id="birthdayYear"
-                  placeholder="Text input" required>
-              </div>
+          <div class="field">
+            <label for="birthdayYear">Year of birth</label>
+            <div class="control">
+              <input class="input" type="text" id="birthdayYear"
+                placeholder="Text input" required
+                [(ngModel)]="model.birthdayYear" name="birthdayYear">
             </div>
           </div>
-          
+          {{model.name}} + {{model.email}} + {{model.birthdayYear}}
           <br>
           <button type="submit" class="button is-large">Submit</button>
-
         </form>
       </div>
     </div>
