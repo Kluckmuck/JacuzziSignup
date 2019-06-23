@@ -3,15 +3,16 @@
     <div class="tile is-4 is-hidden-mobile">
     </div>
     <div class="tile is-4">
-      <div>
+      <div [hidden]="submitted">
         <h1 class="title">Jacuzzi Entertainment</h1>
-        <form #form="ngForm">
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
           <div class="field">
             <label for="Name">Name</label>
             <div class="control">
               <input class="input" type="text" id="name"
                 placeholder="Text input" required [(ngModel)]="model.name"
-                name="name">
+                name="name" #spy>
+              {{spy.className}}
             </div>
           </div>
 
@@ -25,17 +26,22 @@
           </div>
 
           <div class="field">
-            <label for="birthdayYear">Year of birth</label>
+            <label for="birthday">Birthday</label>
             <div class="control">
-              <input class="input" type="text" id="birthdayYear"
+              <input class="input" type="date" id="birthday"
                 placeholder="Text input" required
-                [(ngModel)]="model.birthdayYear" name="birthdayYear">
+                [(ngModel)]="model.birthday" name="birthday">
             </div>
           </div>
-          {{model.name}} + {{model.email}} + {{model.birthdayYear}}
           <br>
-          <button type="submit" class="button is-large">Submit</button>
+          <button type="submit" class="button is-large"
+            [disabled]="!form.form.valid">Submit</button>
         </form>
+        <br>
+        {{model.name}} + {{model.email}} + {{model.birthday}}
+      </div>
+      <div [hidden]="!submitted">
+        <app-submitted name={{model.name}} email={{model.email}} birthday={{model.birthday}}></app-submitted>
       </div>
     </div>
     <div class="tile is-4 is-hidden-mobile">

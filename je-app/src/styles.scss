@@ -2,4 +2,12 @@
 $body-background-color: black;
 $text: white;
 $title-color: white;
+
+.ng-valid[required], .ng-valid.required  {
+    @extend .is-success;
+}
+
+.ng-invalid:not(form)  {
+    @extend .is-danger;
+}
 @import "bulma"; //REQUIRED TO OVERWRITE DEFAULT VARIABLES
