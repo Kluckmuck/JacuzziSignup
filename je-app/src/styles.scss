@@ -7,7 +7,10 @@ $title-color: white;
     @extend .is-success;
 }
 
-.ng-invalid:not(form)  {
-    @extend .is-danger;
+.ng-invalid:not(form) {
+    &.ng-touched {
+        @extend .is-danger;
+    }
 }
+
 @import "bulma"; //REQUIRED TO OVERWRITE DEFAULT VARIABLES

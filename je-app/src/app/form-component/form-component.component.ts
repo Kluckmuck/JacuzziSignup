@@ -10,7 +10,7 @@ export class FormComponentComponent {
 
   constructor() { }
 
-  model = new Signup("Viktor", "viktor@algit.se", "1994-03-06");
+  model = new Signup("", "viktor@algit.se", "1994-03-06");
   submitted = false;
   onSubmit() { this.submitted = true; }
 
