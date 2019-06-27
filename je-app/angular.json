@@ -29,9 +29,13 @@
             ],
             "styles": [
               "node_modules/bulma/css/bulma.min.css",
+              "node_modules/bulma-calendar/dist/css/bulma-calendar.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bulma-calendar/dist/js/bulma-calendar.min.js",
+              "src/assets/js/bulma-calendar.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -90,9 +94,13 @@
             ],
             "styles": [
               "node_modules/bulma/css/bulma.min.css",
+              "node_modules/bulma-calendar/dist/css/bulma-calendar.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bulma-calendar/dist/js/bulma-calendar.min.js",
+              "src/assets/js/bulma-calendar.js"
+            ]
           }
         },
         "lint": {

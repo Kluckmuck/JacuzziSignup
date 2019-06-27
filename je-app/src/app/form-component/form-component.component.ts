@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Signup } from '../signup';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-form-component',
@@ -7,10 +8,10 @@ import { Signup } from '../signup';
   styleUrls: ['./form-component.component.scss']
 })
 export class FormComponentComponent {
-
+  
   constructor() { }
 
-  model = new Signup("", "viktor@algit.se", "1994-03-06");
+  model = new Signup("", "", null);
   submitted = false;
   onSubmit() { this.submitted = true; }
 
