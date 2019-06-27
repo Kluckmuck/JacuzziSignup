@@ -15,7 +15,7 @@ export class SubmittedComponent implements OnInit {
   @Input() email: string;
   @Input() birthday: Date;
 
-
+  checkbox :boolean = false;
   ngOnInit() {
   }
 

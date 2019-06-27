@@ -1,8 +1,7 @@
 <p>
-  submitted works!
+  {{name}}
+  {{email}}
+  {{birthday}}
 </p>
-{{name}}
-{{email}}
-{{birthday}}
-
-<button class="btn btn-default" (click)="postForm()">ELLO</button>
+<input class="checkbox" type="checkbox" [(ngModel)]="checkbox"> Är informationen korrekt?
+<button class="btn btn-default" [disabled]="!checkbox" (click)="postForm()">Skicka in</button>
