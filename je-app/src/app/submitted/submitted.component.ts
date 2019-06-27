@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Signup } from '../signup';
+import { SignupService } from '../signup.service';
 
 @Component({
   selector: 'app-submitted',
@@ -8,14 +9,19 @@ import { Signup } from '../signup';
 })
 export class SubmittedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private signupService:SignupService) { }
 
   @Input() name: string;
   @Input() email: string;
-  @Input() birthday: string;
+  @Input() birthday: Date;
 
 
   ngOnInit() {
+  }
+
+  postForm(){
+    console.log(this.name, this.email,this.birthday)
+    this.signupService.postSignup(new Signup(this.name,this.email,this.birthday)).subscribe();
   }
 
 }
