@@ -8,40 +8,46 @@
         <form (ngSubmit)="onSubmit()" #form="ngForm">
           <div class="field">
             <label for="Name">Name</label>
-            <div class="control">
+            <p class="control">
               <input class="input" type="text" id="name"
-                placeholder="Text input" required [(ngModel)]="model.name"
+                placeholder="Type your first and last name" required
+                [(ngModel)]="model.name"
                 name="name" #spy>
-              {{spy.className}}
-            </div>
+            </p>
           </div>
 
           <div class="field">
             <label for="email">E-mail</label>
-            <div class="control">
+            <p class="control">
               <input class="input" type="email" id="email"
-                placeholder="Text input" required [(ngModel)]="model.email"
+                placeholder="Enter your email" required
+                [(ngModel)]="model.email"
                 name="email">
-            </div>
+            </p>
           </div>
 
           <div class="field">
             <label for="birthday">Birthday</label>
-            <div class="control">
-              <input class="input" type="date" id="birthday"
-                placeholder="Text input" required
+            <p class="control has-icons-right">
+              <input class="input" [matDatepicker]="picker" (click)="picker.open()"
+                id="birthday"
+                placeholder="Select your date of birthday" required
                 [(ngModel)]="model.birthday" name="birthday">
-            </div>
+              <span class="icon is-small is-right">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </span>
+            </p>
           </div>
           <br>
           <button type="submit" class="button is-large"
             [disabled]="!form.form.valid">Submit</button>
         </form>
         <br>
-        {{model.name}} + {{model.email}} + {{model.birthday}}
       </div>
       <div [hidden]="!submitted">
-        <app-submitted name={{model.name}} email={{model.email}} birthday={{model.birthday}}></app-submitted>
+        <app-submitted name={{model.name}} email={{model.email}}
+          birthday={{model.birthday}}></app-submitted>
       </div>
     </div>
     <div class="tile is-4 is-hidden-mobile">
