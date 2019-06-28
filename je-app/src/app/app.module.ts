@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -28,7 +29,10 @@ import { SubmittedComponent } from './submitted/submitted.component';
   exports: [
     MatDatepickerModule
   ],
-  providers: [],
+  providers: [
+    DatePipe
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

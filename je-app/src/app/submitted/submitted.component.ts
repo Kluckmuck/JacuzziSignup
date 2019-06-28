@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Signup } from '../signup';
 import { SignupService } from '../signup.service';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-submitted',
@@ -9,14 +11,19 @@ import { SignupService } from '../signup.service';
 })
 export class SubmittedComponent implements OnInit {
 
-  constructor(private signupService:SignupService) { }
+  constructor(private signupService:SignupService,
+    private date: DatePipe) { }
 
   @Input() name: string;
   @Input() email: string;
   @Input() birthday: Date;
 
+  formattedDate: any;
+
   checkbox :boolean = false;
   ngOnInit() {
+  this.formattedDate = this.date.transform(this.birthday, "yyyy-MM-dd")
+
   }
 
   postForm(){
