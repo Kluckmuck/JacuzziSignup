@@ -1,56 +1,69 @@
-<div class="container">
-  <div class="tile is-parent">
-    <div class="tile is-4 is-hidden-mobile">
-    </div>
-    <div class="tile is-4">
-      <div [hidden]="submitted">
-        <h1 class="title">Jacuzzi Entertainment</h1>
-        <form (ngSubmit)="onSubmit()" #form="ngForm">
-          <div class="field">
-            <label for="Name">Name</label>
-            <p class="control">
-              <input class="input" type="text" id="name"
-                placeholder="Type your first and last name" required
-                [(ngModel)]="model.name"
-                name="name" #spy>
-            </p>
-          </div>
 
-          <div class="field">
-            <label for="email">E-mail</label>
-            <p class="control">
-              <input class="input" type="email" id="email"
-                placeholder="Enter your email" required
-                [(ngModel)]="model.email"
-                name="email">
-            </p>
-          </div>
 
-          <div class="field">
-            <label for="birthday">Birthday</label>
-            <p class="control has-icons-right">
-              <input class="input" [matDatepicker]="picker" (click)="picker.open()"
-                id="birthday"
-                placeholder="Select your date of birthday" required
-                [(ngModel)]="model.birthday" name="birthday">
-              <span class="icon is-small is-right">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </span>
-            </p>
-          </div>
-          <br>
-          <button type="submit" class="button is-large"
-            [disabled]="!form.form.valid">Submit</button>
-        </form>
-        <br>
+<section class="hero  is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="tile is-ancestor">
+          <div class="tile is-parent is-vertical">
+              <article class="tile is-child is-primary">
+                  <div class="content">
+                      <div [hidden]="submitted">
+                        <h1 class="title">Jacuzzi Entertainment</h1>
+                        <form (ngSubmit)="onSubmit()" #form="ngForm">
+                          <div class="field">
+                            <p class="control">
+                              <input class="input" type="text" id="name"
+                                placeholder="För- och efternamn" required
+                                [(ngModel)]="model.name"
+                                name="name" #spy>
+                            </p>
+                          </div>
+                      
+                          <div class="field">
+                            <p class="control">
+                              <input class="input" type="email" id="email"
+                                placeholder="Email" required
+                                [(ngModel)]="model.email"
+                                name="email">
+                            </p>
+                          </div>
+                      
+                          <div class="field">
+                            <p class="control has-icons-right">
+                              <input class="input" [matDatepicker]="picker" (click)="picker.open()"
+                                id="birthday"
+                                placeholder="Välj födelseår" required
+                                [(ngModel)]="model.birthday" name="birthday">
+                              <span class="icon is-small is-right">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </span>
+                            </p>
+                          </div>
+                          <br>
+                          <button type="submit" class="button is-large"
+                            [disabled]="!form.form.valid">Bekräfta</button>
+                        </form>
+                        <br>
+                      </div>
+                      <div [hidden]="!submitted">
+                        <app-submitted name={{model.name}} email={{model.email}}
+                          birthday={{model.birthday}}></app-submitted>
+                      </div>
+                      
+                    </div>
+              </article>
+              <article class="tile is-child is-centered">
+                  <img class="logoImage" src="assets/pictures/jacuzzilgotype.svg">
+              </article>
+            </div>
+          <div class="tile is-parent  ">
+            <article class="tile is-child">
+                <img class="image" src="assets/pictures/sommarfesten-4.png">
+
+            </article>
+        </div>
       </div>
-      <div [hidden]="!submitted">
-        <app-submitted name={{model.name}} email={{model.email}}
-          birthday={{model.birthday}}></app-submitted>
-      </div>
-    </div>
-    <div class="tile is-4 is-hidden-mobile">
     </div>
   </div>
-</div>
+</section>

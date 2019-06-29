@@ -11,7 +11,7 @@ export class FormComponentComponent {
   
   constructor() { }
 
-  model = new Signup("", "viktor@algit.se", new Date("1994-03-06"));
+  model = new Signup("", "", new Date("1994-03-06"));
   submitted = false;
   onSubmit() { this.submitted = true; }
 

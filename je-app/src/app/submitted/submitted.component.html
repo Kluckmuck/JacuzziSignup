@@ -1,9 +1,8 @@
-<p>
-  {{name}}
-  {{email}}
-  {{formattedDate}}
-</p>
+<h3>{{name}}</h3>
+<h3>{{email}}</h3>
+<h3>{{formattedDate}}</h3>
 <br>
 <input class="checkbox" type="checkbox" [(ngModel)]="checkbox"> Är informationen korrekt?
+<br>
 <br>
 <button class="button is-large" [disabled]="!checkbox" (click)="postForm()">Skicka in</button>
