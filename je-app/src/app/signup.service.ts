@@ -13,7 +13,7 @@ export class SignupService {
   constructor(private http: HttpClient) { }
 
   postSignup(signup: Signup): Observable<Signup>{
-    const url = `${API_URL}/signup`;
+    const url = `${API_URL}/signup/`;
     console.log("yesssss")
     return this.http.post<Signup>(url,signup);
   }
