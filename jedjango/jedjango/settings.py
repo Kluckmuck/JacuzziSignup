@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['jedjango-dev.eu-north-1.elasticbeanstalk.com', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'signup.apps.SignupConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
