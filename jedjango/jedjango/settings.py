@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', #django-cors-header
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,6 +50,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+#django-cors-header allowed origins
+CORS_ORIGIN_WHITELIST = [
+    "https://jacuzzientertainment.se",
+    "http://localhost:4200",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "jacuzzientertainment.se",
+    "localhost:4200",
 ]
 
 REST_FRAMEWORK = {
