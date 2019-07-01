@@ -23,12 +23,11 @@ export class SubmittedComponent implements OnInit {
   checkbox :boolean = false;
   ngOnInit() {
   this.formattedDate = this.date.transform(this.birthday, "yyyy-MM-dd")
-
   }
 
   postForm(){
-    console.log(this.name, this.email,this.birthday)
-    this.signupService.postSignup(new Signup(this.name,this.email,this.birthday)).subscribe();
+    console.log(this.name, this.email,this.formattedDate)
+    this.signupService.postSignup(new Signup(this.name,this.email,this.formattedDate)).subscribe();
   }
 
 }
