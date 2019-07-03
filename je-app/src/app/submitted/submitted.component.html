@@ -2,7 +2,11 @@
 <h3>{{email}}</h3>
 <h3>{{formattedDate}}</h3>
 <br>
-<input class="checkbox" type="checkbox" [(ngModel)]="checkbox"> Är informationen korrekt?
+<!-- <input class="checkbox" type="checkbox" [(ngModel)]="checkbox"> Är informationen korrekt? -->
+<label class="checkbox">
+  <input type="checkbox" [(ngModel)]="checkbox">
+  Är informationen korrekt?
+</label>
 <br>
 <br>
 <button class="button is-large" [disabled]="!checkbox" (click)="postForm()">Skicka in</button>
