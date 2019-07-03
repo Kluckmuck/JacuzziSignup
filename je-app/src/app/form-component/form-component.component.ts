@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
+
 import { Signup } from '../signup';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
+import { faHotTub } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-form-component',
@@ -9,13 +14,20 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 })
 export class FormComponentComponent {
   
-  constructor() { }
+  constructor(private date: DatePipe) { }
 
-  model = new Signup("", "", new Date("1994-03-06"));
+  model = new Signup("", "", new Date(""));
   submitted = false;
-  onSubmit() { this.submitted = true; }
+  formattedDate: any;
 
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
+  onSubmit() { 
+    this.formattedDate = this.date.transform(this.model.birthday, "yyyy-MM-dd")
+    this.submitted = true;
+    console.log(this.model.name, this.model.email, this.formattedDate)
+   }
 
+  faCoffee = faCoffee;
+  faEnvelope = faEnvelope;
+  faCalendarDay = faCalendarDay;
+  faHotTub = faHotTub;
 }
