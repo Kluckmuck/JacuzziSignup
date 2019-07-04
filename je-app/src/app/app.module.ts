@@ -11,12 +11,14 @@ import { MatNativeDateModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { FormComponentComponent } from './form-component/form-component.component';
 import { SubmittedComponent } from './submitted/submitted.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponentComponent,
-    SubmittedComponent
+    SubmittedComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
