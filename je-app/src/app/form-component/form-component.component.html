@@ -15,7 +15,7 @@
                       <input class="input is-large" type="text" id="name"
                         placeholder="För- och efternamn" required
                         [(ngModel)]="model.name"
-                        name="name" pattern="[a-zA-Z ]*">
+                        name="name" pattern="[a-zåäöA-ZÅÄÖ ]*">
                       <span class="icon is-small is-left">
                         <fa-icon [icon]="faHotTub"></fa-icon>
                       </span>
@@ -28,7 +28,7 @@
                       <input class="input is-large" type="email" id="email"
                         placeholder="Email" required
                         [(ngModel)]="model.email"
-                        name="email">
+                        name="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|'(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*')@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])">
                       <span class="icon is-small is-left">
                         <fa-icon [icon]="faEnvelope"></fa-icon>
                       </span>
