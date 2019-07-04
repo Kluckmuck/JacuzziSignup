@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-$body-background-color: grey;
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+$yellow: #FEC847;
+$family-primary: 'Lato';
+$body-background-color: $yellow;
 $text: white;
 $title-color: white;
 

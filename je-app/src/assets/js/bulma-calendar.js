@@ -6,7 +6,6 @@ function bulmaCalendarInit() {
     calendars.forEach(calendar => {
         // Add listener to date:selected event
         calendar.on('date:selected', date => {
-            console.log(date);
         });
     });
 
@@ -15,7 +14,6 @@ function bulmaCalendarInit() {
     if (element) {
         // bulmaCalendar instance is available as element.bulmaCalendar
         element.bulmaCalendar.on('select', datepicker => {
-            console.log(datepicker.data.value());
         });
     }
     alert('LOADED');

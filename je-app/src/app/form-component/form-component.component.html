@@ -1,71 +1,83 @@
-
-
-<section class="hero  is-fullheight">
+<section class="hero is-fullheight">
   <div class="hero-body">
     <div class="container">
       <div class="tile is-ancestor">
-          <div class="tile is-parent is-vertical">
-              <article class="tile is-child is-primary">
-                  <div class="content">
-                      <div [hidden]="submitted">
-                        <h1 class="title">Jacuzzi Entertainment</h1>
-                        <form (ngSubmit)="onSubmit()" #form="ngForm">
-                          <div class="field">
-                            <p class="control">
-                              <input class="input" type="text" id="name"
-                                placeholder="För- och efternamn" required
-                                [(ngModel)]="model.name"
-                                name="name" #spy>
-                            </p>
-                          </div>
-                      
-                          <div class="field">
-                            <p class="control">
-                              <input class="input" type="email" id="email"
-                                placeholder="Email" required
-                                [(ngModel)]="model.email"
-                                name="email">
-                            </p>
-                          </div>
-                      
-                          <div class="field">
-                            <p class="control has-icons-right">
-                              <input class="input" [matDatepicker]="picker" (click)="picker.open()"
-                                id="birthday"
-                                placeholder="Välj födelseår" required
-                                [(ngModel)]="model.birthday" name="birthday">
-                              <span class="icon is-small is-right">
-                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                <mat-datepicker #picker></mat-datepicker>
-                              </span>
-                            </p>
-                          </div>
-                          <br>
-                          <button type="submit" class="button is-large"
-                            [disabled]="!form.form.valid">Bekräfta</button>
-                        </form>
-                        <br>
-                      </div>
-                      <div [hidden]="!submitted">
-                        <app-submitted name={{model.name}} email={{model.email}}
-                          birthday={{model.birthday}}></app-submitted>
-                      </div>
-                      
-                    </div>
-              </article>
-              <article class="tile is-child is-centered is-hidden-mobile">
-                  <img class="logoImage" src="assets/pictures/jacuzzilgotype.svg">
-              </article>
-            </div>
-          <div class="tile is-parent  ">
-            <article class="tile is-child">
-                <img class="image" src="assets/pictures/sommarfesten-4.png">
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child is-primary">
+            <div class="content">
+              <div [hidden]="submitted">
+                <h1 class="title is-size-1">Jacuzzi Entertainment</h1>
+                <form (ngSubmit)="onSubmit()" #form="ngForm">
 
+                  <!-- Name field -->
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input is-large" type="text" id="name"
+                        placeholder="För- och efternamn" required
+                        [(ngModel)]="model.name"
+                        name="name" pattern="[a-zA-Z ]*">
+                      <span class="icon is-small is-left">
+                        <fa-icon [icon]="faHotTub"></fa-icon>
+                      </span>
+                    </p>
+                  </div>
+
+                  <!-- Email field -->
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input is-large" type="email" id="email"
+                        placeholder="Email" required
+                        [(ngModel)]="model.email"
+                        name="email">
+                      <span class="icon is-small is-left">
+                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                      </span>
+                    </p>
+                  </div>
+
+                  <!-- Date field -->
+                  <div class="field">
+                    <p class="control has-icons-left">
+                      <input class="input is-large" [matDatepicker]="picker"
+                        (click)="picker.open()"
+                        id="birthday"
+                        placeholder="Välj födelseår" required
+                        [(ngModel)]="model.birthday" name="birthday">
+                      <span class="icon is-small is-left">
+                        <fa-icon [icon]="faCalendarDay"></fa-icon>
+                      </span>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </p>
+                  </div>
+
+                  <!-- Button -->
+                  <br>
+                  <button type="submit" class="button is-large"
+                    [disabled]="!form.form.valid">Bekräfta</button>
+                </form>
+                <br>
+              </div>
+
+              <!-- SUBMITTED COMPONENT -->
+              <div [hidden]="!submitted">
+                <app-submitted name={{model.name}} email={{model.email}}
+                  birthday={{formattedDate}}></app-submitted>
+              </div>
+
+            </div>
             </article>
+            <article class="tile is-child is-centered is-hidden-mobile">
+              <img class="logoImage" src="assets/pictures/jacuzzilgotype.svg">
+            </article>
+          </div>
+          <div class="tile is-parent">
+            <article class="tile is-child">
+              <img class="image" src="assets/pictures/sommarfesten-4.png">
+            </article>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </section>
 <footer class="footer">
   <div class="content has-text-centered">

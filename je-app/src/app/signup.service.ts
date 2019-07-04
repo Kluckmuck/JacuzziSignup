@@ -23,7 +23,6 @@ export class SignupService {
 
   postSignup(signup: Signup): Observable<Signup>{
     const url = `${API_URL}/signup/`;
-    console.log("yesssss")
     return this.http.post<Signup>(url, signup, httpOptions);
   }
 }
