@@ -56,6 +56,7 @@ MIDDLEWARE = [
 #django-cors-header allowed origins
 CORS_ORIGIN_WHITELIST = [
     "https://jacuzzientertainment.se",
+    "http://jacuzzientertainment.se",
     "http://localhost:4200",
 ]
 
