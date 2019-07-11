@@ -19,7 +19,12 @@ const API_URL = environment.apiURL;
 })
 
 export class SignupService {
-  constructor(private http: HttpClient) { }
+  startDate: Date;
+
+  constructor(private http: HttpClient) { 
+    this.startDate = new Date();
+    this.startDate
+  }
 
   postSignup(signup: Signup): Observable<Signup>{
     const url = `${API_URL}/signup/`;

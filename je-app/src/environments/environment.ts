@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiURL: 'http://localhost:8000'
-  apiURL: 'http://jedjango-dev.eu-north-1.elasticbeanstalk.com'
+  apiURL: 'http://jedjango-dev-clone.eu-north-1.elasticbeanstalk.com'
 };
 
 /*

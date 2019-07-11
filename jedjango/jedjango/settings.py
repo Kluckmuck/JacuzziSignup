@@ -26,7 +26,9 @@ with open('jedjango/secret.txt') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jedjango-dev.eu-north-1.elasticbeanstalk.com', 'localhost']
+ALLOWED_HOSTS = ['jedjango-dev.eu-north-1.elasticbeanstalk.com',
+                 'jedjango-dev-clone.eu-north-1.elasticbeanstalk.com',
+                 'localhost']
 
 
 # Application definition
@@ -43,7 +45,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware', #django-cors-header
+    'corsheaders.middleware.CorsMiddleware',  # django-cors-header
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-#django-cors-header allowed origins
+# django-cors-header allowed origins
 CORS_ORIGIN_WHITELIST = [
     "https://jacuzzientertainment.se",
     "http://jacuzzientertainment.se",
@@ -64,6 +66,31 @@ CSRF_TRUSTED_ORIGINS = [
     "jacuzzientertainment.se",
     "localhost:4200",
 ]
+
+# AWS DB
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
+    }
+
+# if 'RDS_HOSTNAME' in os.environ:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': os.environ['ebdb'],
+#             'USER': os.environ['viktor'],
+#             'PASSWORD': os.environ['Gundla123'],
+#             'HOST': os.environ['https://eu-north-1.console.aws.amazon.com/rds/home?region=eu-north-1#dbinstances:id=aatoj04hpmyej9'],
+#             'PORT': os.environ['3306'],
+#         }
+#     }
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -94,12 +121,12 @@ WSGI_APPLICATION = 'jedjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -141,7 +168,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
 
-#Django deployment checklist
+# Django deployment checklist
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 # SECURE_SSL_REDIRECT = True #Breaks local
